@@ -22,6 +22,6 @@ double FindAverage(Node* headPtr);
 void   ListClear(Node*& headPtr, int noMsg = 0);
 
 // prototype of Merge2NonDecListsRecur
-
+void Merge2NonDecListsRecur( Node*& xList, Node*& yList, Node*& zList);
 
 #endif

@@ -5,9 +5,56 @@ using namespace std;
 
 // definition of Merge2NonDecListsRecur of Assignment 6 Part 1
 // ( ***** put at near top to facilitate printing and marking ***** )
-// by (to help ID your code): <YOUR NAME HERE>
+// by (to help ID your code): <CADEN SPRAGUE>
 
-< your code for Merge2NonDecListsRecur goes here >
+void Merge2NonDecListsRecur( Node*& xList, Node*& yList, Node*& zList)
+{
+   // if xlist and ylist both empty
+   if(xList == 0 && yList == 0)   
+   {
+      zList = 0;
+      return;
+   }
+
+   // if xlist is the only empty one
+   if(xList == 0)
+   {
+      zList = yList;
+      yList = yList->link;
+
+      Merge2NonDecListsRecur( xList , yList , zList->link);
+
+      return;
+   }
+
+   // if ylist is the only empty one
+   if(yList == 0)
+   {
+      zList = xList;
+      xList = xList->link;
+
+      Merge2NonDecListsRecur( xList , yList , zList->link);
+      
+      return;
+   }
+
+   // if xList->data is less, add it
+   // else add ylist
+   // then keep going
+   if(xList->data <= yList->data)
+   {
+      zList = xList;
+      xList = xList->link;
+   }
+   else 
+   {
+      zList = yList;
+      yList = yList->link;
+   }
+
+   Merge2NonDecListsRecur( xList , yList , zList->link);
+   
+}
 
 
 
